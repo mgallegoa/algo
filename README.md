@@ -1,2 +1,2 @@
 # algo
-Algorithms repository is use to define and implement alorithms in different languages
+Algorithms repository is use to define and implement algorithms in different languages
