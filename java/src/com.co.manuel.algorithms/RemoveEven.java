@@ -1,5 +1,7 @@
 package com.co.manuel.algorithms;
 
+import com.co.manuel.algorithms.Utils;
+
 public class RemoveEven {
 
   public int[] removeEven(int[] array) {
@@ -22,21 +24,15 @@ public class RemoveEven {
 
   }
 
-  public void printArray(int[] array) {
-    System.out.print("[");
-    for (int i = 0; i < array.length; i++) {
-      System.out.print(array[i] + ",");
-    }
-
-    System.out.print("]");
-  }
-
   public static void main(String[] arr) {
-    System.out.println("Hola manuel");
+    System.out.println("Remove Even Algorithm: ");
     RemoveEven re = new RemoveEven();
     int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    System.out.println("Initial array: ");
+    Utils.printArray(array);
     int[] newArray = re.removeEven(array);
-    re.printArray(newArray);
+    System.out.println("Final array: ");
+    Utils.printArray(newArray);
 
   }
 }
