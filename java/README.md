@@ -14,3 +14,4 @@
 5. Find Second Max number -> ./src/com/co/manuel/algorithms/array/FindSecondMax.java
 6. Move Zeros to the end of array -> ./src/com/co/manuel/algorithms/array/MoveZerosToEnd.java
 7. Find the missing number in an array -> ./src/com/co/manuel/algorithms/array/FindMissingNum.java
+8. Palindrome string -> ./src/com/co/manuel/algorithms/string/PalindromeString.java
