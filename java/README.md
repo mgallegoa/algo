@@ -12,3 +12,4 @@
 3. Remove Even for array -> ./src/com.co.manuel.algorithms/RemoveEven.java
 4. Reverse array -> ./src/com.co.manuel.algorithms/ReverseArray.java
 5. Find Second Max number -> ./src/com.co.manuel.algorithms/FindSecondMax.java
+6. Move Zeros to the end of array -> ./src/com.co.manuel.algorithms/MoveZerosToEnd.java
