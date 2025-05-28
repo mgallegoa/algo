@@ -1,6 +1,6 @@
-package com.co.manuel.algorithms;
+package com.co.manuel.algorithms.array;
 
-import com.co.manuel.algorithms.Utils;
+import com.co.manuel.algorithms.array.Utils;
 
 public class FindSecondMax {
 

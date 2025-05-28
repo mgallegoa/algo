@@ -1,4 +1,4 @@
-package com.co.manuel.algorithms;
+package com.co.manuel.algorithms.array;
 
 public class Utils {
 
