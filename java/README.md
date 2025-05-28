@@ -9,5 +9,6 @@
 >
 > java -cp build/ com.co.manuel.algorithms.RemoveEven
 
-1. Remove Even for array -> ./src/com.co.manuel.algorithms/RemoveEven.java
-1. Reverse array -> ./src/com.co.manuel.algorithms/ReverseArray.java
+3. Remove Even for array -> ./src/com.co.manuel.algorithms/RemoveEven.java
+4. Reverse array -> ./src/com.co.manuel.algorithms/ReverseArray.java
+5. Find Second Max number -> ./src/com.co.manuel.algorithms/FindSecondMax.java
