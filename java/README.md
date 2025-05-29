@@ -15,3 +15,5 @@
 6. Move Zeros to the end of array -> ./src/com/co/manuel/algorithms/array/MoveZerosToEnd.java
 7. Find the missing number in an array -> ./src/com/co/manuel/algorithms/array/FindMissingNum.java
 8. Palindrome string -> ./src/com/co/manuel/algorithms/string/PalindromeString.java
+
+9. Singly Array List -> ./src/com/co/manuel/algorithms/list/SinglyLinkedList.java

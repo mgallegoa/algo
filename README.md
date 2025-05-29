@@ -15,6 +15,7 @@ Algorithms repository is use to define and implement algorithms in different lan
 ## Algorithms
 1. Sum of numbers -> 001_SumNumbers.md
 2. Polynomial time complexity analysis --> 002_Polynomial.md
+3. Singly Array List --> java/README.md
 
 ## Implementations:
-1. Remove Even Numbers from array, java ./java/README.md
+1. Java implementations --> ./java/README.md
