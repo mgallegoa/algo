@@ -25,6 +25,30 @@ public class SinglyLinkedList {
 
   }
 
+  public void insertFirst(int value) {
+    ListNode newNode = new ListNode(value);
+    newNode.next = head;
+    head = newNode;
+  }
+
+  public void insertPosition(int value, int position) {
+
+  }
+
+  public void insertLast(int value) {
+    ListNode newNode = new ListNode(value);
+    if (head == null) {
+      head = newNode;
+      return;
+    }
+    ListNode current = head;
+    while (current.next != null) {
+      current = current.next;
+    }
+    current.next = newNode;
+
+  }
+
   public int length() {
     int count = 0;
     ListNode current = head;
