@@ -4,6 +4,7 @@
 > Using pure Java, use the next command to compile
 >
 > javac -d build/ src/com/co/manuel/algorithms/array/*.java
+> javac -d build/ -Xlint:unchecked  src/com/co/manuel/algorithms/list/ValidParentheses.java
 >
 > Use the next command to run
 >
