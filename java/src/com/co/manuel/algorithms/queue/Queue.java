@@ -3,7 +3,7 @@ package com.co.manuel.algorithms.queue;
 import java.util.NoSuchElementException;
 
 /*
- * Implement Queue methods, FILO
+ * Implement Queue methods, FIFO
  */
 public class Queue {
 
