@@ -1,5 +1,7 @@
 package com.co.manuel.algorithms.trees;
 
+import java.util.Stack;
+
 public class BinaryTree {
   private TreeNode root;
 
@@ -31,14 +33,38 @@ public class BinaryTree {
       return;
     }
 
-    System.out.println(root.data + " ");
+    System.out.print(root.data + " ");
     preOrderRecursive(root.left);
     preOrderRecursive(root.right);
+  }
+
+  public void preOrderIperative(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      TreeNode temp = stack.pop();
+      System.out.print(temp.data + " ");
+      if (temp.right != null) {
+        stack.push(temp.right);
+      }
+      if (temp.left != null) {
+        stack.push(temp.left);
+      }
+    }
+
   }
 
   public static void main(String[] args) {
     BinaryTree bt = new BinaryTree();
     bt.createBinaryTree();
+    System.out.println("Print in recursive: ");
     bt.preOrderRecursive(bt.root);
+    System.out.println("");
+    System.out.println("Now print in Imperative: ");
+    bt.preOrderIperative(bt.root);
   }
 }
