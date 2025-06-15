@@ -1,5 +1,7 @@
 package com.co.manuel.algorithms.trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -136,6 +138,25 @@ public class BinaryTree {
 
   }
 
+  public void levelOrderIperative(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      TreeNode temp = queue.poll();
+      System.out.print(temp.data + " ");
+      if (temp.left != null) {
+        queue.offer(temp.left);
+      }
+      if (temp.right != null) {
+        queue.offer(temp.right);
+      }
+    }
+
+  }
+
   public static void main(String[] args) {
     BinaryTree bt = new BinaryTree();
     bt.createBinaryTree();
@@ -156,5 +177,8 @@ public class BinaryTree {
     System.out.println("");
     System.out.println("Now print in Imperative post-Order: ");
     bt.postOrderIperative(bt.root);
+    System.out.println("");
+    System.out.println("Print in Imperative level-Order: ");
+    bt.levelOrderIperative(bt.root);
   }
 }
