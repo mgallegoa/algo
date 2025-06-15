@@ -26,6 +26,13 @@ public class BinaryTree {
     first.right = third;
 
     second.left = fourth;
+
+    System.out.println("       9");
+    System.out.println("      /  \\ ");
+    System.out.println("     2     3");
+    System.out.println("    /       ");
+    System.out.println("   4      ");
+
   }
 
   public void preOrderRecursive(TreeNode root) {
@@ -58,13 +65,50 @@ public class BinaryTree {
 
   }
 
+  public void inOrderRecursive(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+
+    inOrderRecursive(root.left);
+    System.out.print(root.data + " ");
+    inOrderRecursive(root.right);
+  }
+
+  public void inOrderIperative(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode temp = root;
+    while (!stack.isEmpty() || temp != null) {
+      if (temp != null) {
+        stack.push(temp);
+        temp = temp.left;
+      } else {
+        temp = stack.pop();
+        System.out.print(temp.data + " ");
+        temp = temp.right;
+      }
+
+    }
+
+  }
+
   public static void main(String[] args) {
     BinaryTree bt = new BinaryTree();
     bt.createBinaryTree();
-    System.out.println("Print in recursive: ");
+    System.out.println("Print in recursive pre-Order: ");
     bt.preOrderRecursive(bt.root);
     System.out.println("");
-    System.out.println("Now print in Imperative: ");
+    System.out.println("Now print in Imperative pre-Order: ");
     bt.preOrderIperative(bt.root);
+    System.out.println("");
+    System.out.println("Print in recursive in-Order: ");
+    bt.inOrderRecursive(bt.root);
+    System.out.println("");
+    System.out.println("Now print in Imperative in-Order: ");
+    bt.inOrderIperative(bt.root);
   }
 }
