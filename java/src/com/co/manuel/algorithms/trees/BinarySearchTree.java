@@ -2,7 +2,9 @@ package com.co.manuel.algorithms.trees;
 
 /*
  * This class contain the Binary Search Tree implementation:
- * 1. Insert
+ * 1. printInOrderTree to print the Binary Search Tree in-Order traversal.
+ * 2. insert to insert a value in a Binary Search Tree.
+ * 3. Search a key in a Binary Search Tree.
  * 
  */
 public class BinarySearchTree {
@@ -17,6 +19,15 @@ public class BinarySearchTree {
     public TreeNode(int data) {
       this.data = data;
     }
+  }
+
+  public void printInOrderTree(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    printInOrderTree(root.left);
+    System.out.print(root.data + " ");
+    printInOrderTree(root.rigth);
   }
 
   public void insert(int value) {
@@ -36,12 +47,28 @@ public class BinarySearchTree {
     return root;
   }
 
+  public TreeNode search(TreeNode root, int key) {
+    if (root == null || root.data == key) {
+      return root;
+    }
+    if (key < root.data) {
+      return search(root.left, key);
+    } else {
+      return search(root.rigth, key);
+    }
+  }
+
   public static void main(String[] args) {
     BinarySearchTree bst = new BinarySearchTree();
     bst.insert(5);
     bst.insert(3);
     bst.insert(7);
     bst.insert(1);
+    System.out.println("Print the creation of Binary Search Tree");
+    bst.printInOrderTree(bst.root);
+    System.out.println("");
+    TreeNode result = bst.search(bst.root, 17);
+    System.out.println("Print the node with the value: " + (result == null ? "Not found" : result.data));
   }
 
 }
