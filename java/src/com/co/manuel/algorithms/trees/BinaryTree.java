@@ -4,6 +4,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * In this class:
+ * 1. Traverse a Binary Tree in pre-Order recursively.
+ * 2. Traverse a Binary Tree in pre-Order imperative.
+ * 3. Traverse a Binary Tree in in-Order recursively.
+ * 4. Traverse a Binary Tree in in-Order imperative.
+ * 5. Traverse a Binary Tree in post-Order recursively.
+ * 6. Traverse a Binary Tree in post-Order imperative.
+ * 7. Traverse a Binary Tree in level-Order imperative.
+ * 8. Find in a Binary Tree the maximum number recursively.
+ */
 public class BinaryTree {
   private TreeNode root;
 
@@ -157,6 +168,22 @@ public class BinaryTree {
 
   }
 
+  public int findMaxNumRecursive(TreeNode root) {
+    if (root == null) {
+      return Integer.MIN_VALUE;
+    }
+    int result = root.data;
+    int maxLeft = findMaxNumRecursive(root.left);
+    int maxRight = findMaxNumRecursive(root.right);
+    if (maxLeft > result) {
+      result = maxLeft;
+    }
+    if (maxRight > result) {
+      result = maxRight;
+    }
+    return result;
+  }
+
   public static void main(String[] args) {
     BinaryTree bt = new BinaryTree();
     bt.createBinaryTree();
@@ -180,5 +207,8 @@ public class BinaryTree {
     System.out.println("");
     System.out.println("Print in Imperative level-Order: ");
     bt.levelOrderIperative(bt.root);
+    System.out.println("");
+    System.out.println("Now find max value recursive: ");
+    System.out.println(bt.findMaxNumRecursive(bt.root));
   }
 }
