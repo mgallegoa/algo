@@ -96,6 +96,16 @@ public class BinaryTree {
 
   }
 
+  public void postOrderRecursive(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+
+    postOrderRecursive(root.left);
+    postOrderRecursive(root.right);
+    System.out.print(root.data + " ");
+  }
+
   public static void main(String[] args) {
     BinaryTree bt = new BinaryTree();
     bt.createBinaryTree();
@@ -110,5 +120,8 @@ public class BinaryTree {
     System.out.println("");
     System.out.println("Now print in Imperative in-Order: ");
     bt.inOrderIperative(bt.root);
+    System.out.println("");
+    System.out.println("Print in recursive post-Order: ");
+    bt.postOrderRecursive(bt.root);
   }
 }
