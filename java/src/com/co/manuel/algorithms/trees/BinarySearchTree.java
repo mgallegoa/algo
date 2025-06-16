@@ -2,9 +2,13 @@ package com.co.manuel.algorithms.trees;
 
 /*
  * This class contain the Binary Search Tree implementation:
+ *
+ * Note: To allow duplicate use AVL/Red-Black multi set tree (create new attribute count)
+ *
  * 1. printInOrderTree to print the Binary Search Tree in-Order traversal.
- * 2. insert to insert a value in a Binary Search Tree.
+ * 2. Insert to insert a value in a Binary Search Tree.
  * 3. Search a key in a Binary Search Tree.
+ * 4. Validate if BST is valid: 1) If go left min equal and max change to parent. 2) If go right min change to parent and max equal.
  * 
  */
 public class BinarySearchTree {
@@ -58,6 +62,22 @@ public class BinarySearchTree {
     }
   }
 
+  public boolean validate(TreeNode root, long min, long max) {
+    if (root == null) {
+      return true;
+    }
+    if (root.data <= min || root.data >= max) {
+      return false;
+    }
+    boolean left = validate(root.left, min, root.data);
+    if (left) {
+      boolean right = validate(root.rigth, root.data, max);
+      return right;
+    }
+    return false;
+
+  }
+
   public static void main(String[] args) {
     BinarySearchTree bst = new BinarySearchTree();
     bst.insert(5);
@@ -69,6 +89,8 @@ public class BinarySearchTree {
     System.out.println("");
     TreeNode result = bst.search(bst.root, 17);
     System.out.println("Print the node with the value: " + (result == null ? "Not found" : result.data));
+    System.out.println("Validate if it is a correct Binary Search Tree: "
+        + bst.validate(bst.root, Integer.MIN_VALUE, Integer.MAX_VALUE));
   }
 
 }
