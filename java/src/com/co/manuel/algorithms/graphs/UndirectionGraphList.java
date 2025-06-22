@@ -94,6 +94,28 @@ public class UndirectionGraphList {
     }
   }
 
+  /*
+   * Traversal using Depth First Search, recursive
+   */
+  public void traversalRecursiveDFS() {
+    boolean[] visited = new boolean[this.V];
+    for (int v = 0; v < this.V; v++) {
+      if (!visited[v]) {
+        recursiveDFS(v, visited);
+      }
+    }
+  }
+
+  public void recursiveDFS(int v, boolean[] visited) {
+    visited[v] = true;
+    System.out.print(v + " ");
+    for (int w : this.adj[v]) {
+      if (!visited[w]) {
+        recursiveDFS(w, visited);
+      }
+    }
+  }
+
   public static void main(String[] args) {
     UndirectionGraphList ugl = new UndirectionGraphList(5);
     ugl.addEdge(0, 1);
@@ -107,5 +129,8 @@ public class UndirectionGraphList {
     System.out.println("");
     System.out.println("Traverse the UN Directional Graph using Depth First Search DFS algorithm:");
     ugl.traversalDFS(0);
+    System.out.println("");
+    System.out.println("Traverse the UN Directional Graph using recursive Depth First Search DFS algorithm:");
+    ugl.traversalRecursiveDFS();
   }
 }
