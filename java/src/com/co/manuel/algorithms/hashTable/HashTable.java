@@ -51,11 +51,32 @@ public class HashTable {
     return this.size == 0;
   }
 
+  public int getBucketIndex(Integer key) {
+    return key % numOfBuckets;
+  }
+
   /*
    * Using Separate Chaining technique.
    */
   public void put(Integer key, String value) {
+    if (key == null || value == null) {
+      throw new IllegalArgumentException("key or null can't be null");
 
+    }
+    int index = getBucketIndex(key);
+    HashNode head = buckets[index];
+    while (head != null) {
+      if (head.key.equals(key)) {
+        head.value = value;
+        return;
+      }
+      head = head.next;
+    }
+    size++;
+    head = buckets[index];
+    HashNode newNode = new HashNode(key, value);
+    newNode.next = head;
+    buckets[index] = newNode;
   }
 
   public String get(Integer key) {
@@ -70,6 +91,11 @@ public class HashTable {
     System.out.println("Implementation an internal representation of a HashTable, this is O(1)-->");
     HashTable ht = new HashTable();
     System.out.println("size: " + ht.size());
+    ht.put(105, "Manuel");
+    ht.put(21, "Fernando");
+    System.out.println("size: " + ht.size());
+    ht.put(105, "Arias");
+    System.out.println("size (add duplicated key): " + ht.size());
   }
 
 }
