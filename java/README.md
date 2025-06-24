@@ -18,3 +18,5 @@
 8. Palindrome string -> ./src/com/co/manuel/algorithms/string/PalindromeString.java
 
 9. Singly Array List -> ./src/com/co/manuel/algorithms/list/SinglyLinkedList.java
+
+This study is based in https://www.youtube.com/watch?v=2ZLl8GAk1X4&t=392s
