@@ -90,7 +90,7 @@ public class HashTable {
 
   public String get(Integer key) {
     if (key == null) {
-      throw new IllegalArgumentException("key can't be null");
+      throw new IllegalArgumentException("get key can't be null");
     }
     int index = getBucketIndex(key);
     HashNode head = buckets[index];
@@ -105,7 +105,30 @@ public class HashTable {
   }
 
   public String remove(Integer key) {
-    return "";
+    if (key == null) {
+      throw new IllegalArgumentException("remove key can't be null");
+    }
+    int index = getBucketIndex(key);
+    HashNode head = buckets[index];
+    HashNode previous = null;
+    while (head != null) {
+      if (head.key.equals(key)) {
+        break;
+      }
+      previous = head;
+      head = head.next;
+    }
+    if (head == null) {
+      return null;
+    }
+    this.size--;
+    if (previous == null) {
+      buckets[index] = head.next;
+    } else {
+      previous.next = head.next;
+    }
+
+    return head.value;
   }
 
   public static void main(String[] args) {
@@ -118,6 +141,8 @@ public class HashTable {
     ht.put(105, "Arias");
     System.out.println("size (add duplicated key): " + ht.size());
     System.out.println("Test the get method: " + ht.get(105));
+    System.out.println("Test the remove method: " + ht.remove(105));
+    System.out.println("size (after remove key): " + ht.size());
   }
 
 }
