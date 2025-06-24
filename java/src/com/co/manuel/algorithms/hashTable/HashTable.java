@@ -4,6 +4,16 @@ package com.co.manuel.algorithms.hashTable;
  * Complexity of O(1)
  * Internal representation of a HashTable:
  * 1. Store each key using Modulo % (value % 10).
+ * Note: Java do --> hash & (size - 1) : Faster, example:
+ * hash = 123456 and size = 16, then
+ * 123456 = 0001 1110 0010 0000 0000 (20 bits)
+ * (size - 1) 15 = 0000 0000 0000 0000 1111
+ * Now -->
+ * 0001 1110 0010 0000 0000
+ * & 0000 0000 0000 0000 1111
+ * ---------------------------
+ * 0000 0000 0000 0000 0000
+ *
  * 2. Using the Collision Resolution technique called chaining, with an array of
  * HashNode[] (similar to LinkedList). Use Trees for Java 8+
  * 3. Every index of the HashTable is called a bucket.
@@ -60,8 +70,7 @@ public class HashTable {
    */
   public void put(Integer key, String value) {
     if (key == null || value == null) {
-      throw new IllegalArgumentException("key or null can't be null");
-
+      throw new IllegalArgumentException("key or value can't be null");
     }
     int index = getBucketIndex(key);
     HashNode head = buckets[index];
@@ -80,7 +89,19 @@ public class HashTable {
   }
 
   public String get(Integer key) {
-    return "";
+    if (key == null) {
+      throw new IllegalArgumentException("key can't be null");
+    }
+    int index = getBucketIndex(key);
+    HashNode head = buckets[index];
+    while (head != null) {
+      if (head.key.equals(key)) {
+        return head.value;
+
+      }
+      head = head.next;
+    }
+    return null;
   }
 
   public String remove(Integer key) {
@@ -96,6 +117,7 @@ public class HashTable {
     System.out.println("size: " + ht.size());
     ht.put(105, "Arias");
     System.out.println("size (add duplicated key): " + ht.size());
+    System.out.println("Test the get method: " + ht.get(105));
   }
 
 }
