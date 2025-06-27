@@ -8,7 +8,7 @@ package com.co.manuel.algorithms.dynamicProgramming;
  * Overlapping Sub problems: if solution of the problem is obtain by solving same sub problems multiple times.
  *
  * Bottom Up Approach: Smaller sub-problem first and use the solution to solve the biggest problem (Tabulation method).
- * Top Down Approach: 
+ * Top Down Approach: Each sub-problem is solved and remember and re-use (Memorization)
  */
 public class DynamicProgramming {
 
@@ -24,6 +24,10 @@ public class DynamicProgramming {
     return left + right;
   }
 
+  /*
+   * Bottom Up Approach: Smaller sub-problem first and use the solution to solve
+   * the biggest problem (Tabulation method).
+   */
   public int fibonacciBottomUpTabulatoion(int n) {
     int[] table = new int[n + 1];
     table[0] = 0;
@@ -34,10 +38,32 @@ public class DynamicProgramming {
     return table[n];
   }
 
+  /*
+   * Top Down Approach: Each sub-problem is solved and remember and re-use
+   * (Memorization)
+   */
+  public int fibonacciTopDownMemorization(int[] memo, int n) {
+    if (memo[n] == 0) {
+      if (n < 2) {
+        memo[n] = n; // 1 and 0
+      } else {
+        int left = fibonacciTopDownMemorization(memo, n - 1);
+        int right = fibonacciTopDownMemorization(memo, n - 2);
+        memo[n] = left + right;
+      }
+    }
+
+    return memo[n];
+  }
+
   public static void main(String[] args) {
     DynamicProgramming dp = new DynamicProgramming();
     int n = 6;
     System.out.println("Fibonacci number, using recursion: " + dp.fibonacciRecursion(n));
-    System.out.println("Fibonacci number, using dynamic programing (Bottom up): " + dp.fibonacciBottomUpTabulatoion(n));
+    System.out.println(
+        "Fibonacci number, using dynamic programing (Bottom up, tabulation): " + dp.fibonacciBottomUpTabulatoion(n));
+    System.out.println(
+        "Fibonacci number, using dynamic programing (Top Down, memorization): "
+            + dp.fibonacciTopDownMemorization(new int[n + 1], n));
   }
 }
