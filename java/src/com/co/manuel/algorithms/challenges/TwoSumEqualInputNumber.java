@@ -28,6 +28,27 @@ public class TwoSumEqualInputNumber {
     return result;
   }
 
+  public int[] twoSumEqualInputNumberSorted(int[] arr, int target) {
+    int[] result = new int[2];
+    Arrays.sort(arr);
+    int left = 0;
+    int right = arr.length - 1;
+    while (left < right) {
+      int sum = arr[left] + arr[right];
+      if (sum == target) {
+        result[0] = arr[left];
+        result[1] = arr[right];
+        return result;
+      } else if (sum < target) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+
+    return result;
+  }
+
   public static void main(String[] args) {
     TwoSumEqualInputNumber tNumber = new TwoSumEqualInputNumber();
     int[] arr = { 2, 11, 5, 10, 7, 8 };
@@ -37,7 +58,9 @@ public class TwoSumEqualInputNumber {
     System.out.println("Array -->" + Arrays.toString(arr));
     System.out.println("Target = 9");
     int[] result = tNumber.twoSumEqualInputNumber(arr, target);
-    System.out.println("Output --> " + Arrays.toString(result));
+    System.out.println("Output O(n) (return the indexes) --> " + Arrays.toString(result));
+    result = tNumber.twoSumEqualInputNumberSorted(arr, target);
+    System.out.println("Output Sorted approach O(n log n) (return pair numbers) --> " + Arrays.toString(result));
 
   }
 
