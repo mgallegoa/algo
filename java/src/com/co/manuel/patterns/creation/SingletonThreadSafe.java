@@ -1,5 +1,11 @@
 package com.co.manuel.patterns.creation;
 
+/*
+ * Other examples in java library:
+ * 1. java.lang.Runtime#getRuntime()
+ * 2. java.lang.System#getSecurityManager()
+ * 3. java.awt.Desktop#getDesktop()
+ */
 public final class SingletonThreadSafe {
 
   // volatile to double check lock
