@@ -17,6 +17,12 @@ public class PayFactoryMethod {
     }
   };
 
+  /*
+   * This is the Factory Method.
+   *
+   * The variation if for the parameter used but it could be done with an
+   * interface.
+   */
   public Pay getPay(PayType payType) {
     return payments.get(payType);
   }
