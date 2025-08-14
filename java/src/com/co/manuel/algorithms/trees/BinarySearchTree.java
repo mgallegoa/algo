@@ -18,7 +18,7 @@ public class BinarySearchTree {
   private class TreeNode {
     private int data;
     private TreeNode left;
-    private TreeNode rigth;
+    private TreeNode right;
 
     public TreeNode(int data) {
       this.data = data;
@@ -29,9 +29,10 @@ public class BinarySearchTree {
     if (root == null) {
       return;
     }
+    System.out.print("root: ");
     printInOrderTree(root.left);
     System.out.print(root.data + " ");
-    printInOrderTree(root.rigth);
+    printInOrderTree(root.right);
   }
 
   public void insert(int value) {
@@ -46,7 +47,7 @@ public class BinarySearchTree {
     if (value < root.data) {
       root.left = insert(root.left, value);
     } else {
-      root.rigth = insert(root.rigth, value);
+      root.right = insert(root.right, value);
     }
     return root;
   }
@@ -58,7 +59,7 @@ public class BinarySearchTree {
     if (key < root.data) {
       return search(root.left, key);
     } else {
-      return search(root.rigth, key);
+      return search(root.right, key);
     }
   }
 
@@ -71,7 +72,7 @@ public class BinarySearchTree {
     }
     boolean left = validate(root.left, min, root.data);
     if (left) {
-      boolean right = validate(root.rigth, root.data, max);
+      boolean right = validate(root.right, root.data, max);
       return right;
     }
     return false;
@@ -91,6 +92,68 @@ public class BinarySearchTree {
     System.out.println("Print the node with the value: " + (result == null ? "Not found" : result.data));
     System.out.println("Validate if it is a correct Binary Search Tree: "
         + bst.validate(bst.root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+    //// Second example, see the file BinarySearchTree.txt
+    System.out.println("Insert in BinaryTree int, see file BinarySearchTree.txt");
+    BinarySearchTree binarySearchTree = new BinarySearchTree();
+    binarySearchTree.insert(5);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(1);
+
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(11);
+    binarySearchTree.insert(12);
+    binarySearchTree.insert(13);
+    binarySearchTree.insert(14);
+    binarySearchTree.insert(15);
+    binarySearchTree.insert(9);
+
+    binarySearchTree.printInOrderTree(binarySearchTree.root);
+    System.out.println("");
+
+    TreeNode first = binarySearchTree.new TreeNode(1);
+    TreeNode second = binarySearchTree.new TreeNode(2);
+    TreeNode three = binarySearchTree.new TreeNode(3);
+    TreeNode five = binarySearchTree.new TreeNode(5);
+    TreeNode six = binarySearchTree.new TreeNode(6);
+    TreeNode seven = binarySearchTree.new TreeNode(7);
+    TreeNode eight = binarySearchTree.new TreeNode(8);
+
+    TreeNode ten = binarySearchTree.new TreeNode(10);
+    TreeNode eleven = binarySearchTree.new TreeNode(11);
+    TreeNode twelve = binarySearchTree.new TreeNode(12);
+    TreeNode thirteen = binarySearchTree.new TreeNode(13);
+    TreeNode fourteen = binarySearchTree.new TreeNode(14);
+    TreeNode fifteen = binarySearchTree.new TreeNode(15);
+    TreeNode nine = binarySearchTree.new TreeNode(9);
+
+    // five.left = three;
+    // five.right = six;
+    // three.left = first;
+    // first.left = second;
+    // six.right = seven;
+    // seven.right = eight;
+    // binarySearchTree.printInOrder(five);
+
+    five.left = three;
+    five.right = six;
+    three.left = second;
+    second.left = first;
+    six.right = seven;
+    seven.right = eight;
+    eight.right = ten;
+    ten.right = eleven;
+    ten.left = nine;
+    eleven.right = twelve;
+    twelve.right = thirteen;
+    thirteen.right = fourteen;
+    fourteen.right = fifteen;
+    binarySearchTree.printInOrderTree(five);
+
   }
 
 }
