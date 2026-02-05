@@ -1,5 +1,7 @@
 package com.co.manuel.algorithms.sorting;
 
+import java.util.Arrays;
+
 import com.co.manuel.algorithms.array.Utils;
 
 /*
@@ -26,7 +28,7 @@ public class MergeSort {
     int j = mid + 1;// Traverse left sorted array
     int k = low;
 
-    while (i < mid && j <= high) {
+    while (i <= mid && j <= high) {
       if (temp[i] <= temp[j]) {
         arr[k] = temp[i];
         i++;
@@ -52,6 +54,13 @@ public class MergeSort {
     System.out.println("Merge sort algorithm, using temp array -->");
     ms.mergeSort(arr, new int[arr.length], 0, arr.length - 1);
     Utils.printArray(arr);
+
+    System.out.println("Merge sort with temporal array.");
+    int[] arrayUnsorted = new int[] { 3, 6, 8, 4, 9, 6, 11, 22, 55, 4, 2, 5 };
+
+    ms.mergeSort(arrayUnsorted, new int[arrayUnsorted.length], 0, arrayUnsorted.length - 1);
+    System.out.println(Arrays.toString(arrayUnsorted));
+
   }
 
 }
