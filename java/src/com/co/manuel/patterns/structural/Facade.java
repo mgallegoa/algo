@@ -60,7 +60,7 @@ public class Facade {
   }
 
   public static void main(String[] args) {
-    System.out.println("Structural patther Facade to set watch a move -->");
+    System.out.println("Structural patterns - Facade pattern. Set watch a move -->");
     System.out.println("Without Facade -->");
     Amplifier amp = new Amplifier();
     amp.on();
