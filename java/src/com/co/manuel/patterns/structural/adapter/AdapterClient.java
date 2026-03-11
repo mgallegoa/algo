@@ -3,7 +3,7 @@ package com.co.manuel.patterns.structural.adapter;
 public class AdapterClient {
 
   public static void main(String[] args) {
-    System.out.println("Structural patterns - Adapter patthern");
+    System.out.println("Structural patterns - Adapter pattern");
 
     RoundHole rh = new RoundHole(5);
     RoundPeg rp = new RoundPeg(5);
